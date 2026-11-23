@@ -13,7 +13,7 @@ if (!fs.existsSync(outDir)) {
 fs.writeFileSync(path.join(outDir, ".nojekyll"), "");
 console.log("Created out/.nojekyll");
 
-// 2. If basePath is set (e.g. /Personal_Portfolio), rewrite root-relative "/assets/..." references
+// 2. If basePath is set (e.g. /Personal_Portfolio), rewrite root-relative "/assets/..." and "/images/..." references
 if (basePath && basePath !== "/") {
   function walk(dir) {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -24,7 +24,9 @@ if (basePath && basePath !== "/") {
         const content = fs.readFileSync(fullPath, "utf8");
         const updated = content
           .replace(/(["'(])\/assets\//g, `$1${basePath}/assets/`)
-          .replace(/\\\/assets\\\//g, `\\${basePath}\\/assets\\/`);
+          .replace(/\\\/assets\\\//g, `\\${basePath}\\/assets\\/`)
+          .replace(/(["'(])\/images\//g, `$1${basePath}/images/`)
+          .replace(/\\\/images\\\//g, `\\${basePath}\\/images\\/`);
         if (updated !== content) {
           fs.writeFileSync(fullPath, updated, "utf8");
         }
@@ -32,5 +34,5 @@ if (basePath && basePath !== "/") {
     }
   }
   walk(outDir);
-  console.log(`Updated /assets/ paths with basePath: ${basePath}`);
+  console.log(`Updated /assets/ and /images/ paths with basePath: ${basePath}`);
 }
