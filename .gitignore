@@ -20,3 +20,7 @@ api/.env
 .DS_Store
 *.log
 .history/
+
+prompt_pack.txt
+review/
+.claude/
