@@ -1,0 +1,13 @@
+import { MetadataRoute } from "next";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/lab"],
+    },
+    sitemap: "https://rajkamalgowda.dev/sitemap.xml",
+  };
+}
+

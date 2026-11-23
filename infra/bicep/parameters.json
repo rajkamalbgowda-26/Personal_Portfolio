@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environment": {
+      "value": "production"
+    },
+    "location": {
+      "value": "eastus2"
+    },
+    "prefix": {
+      "value": "quicksilver"
+    },
+    "acrLoginServer": {
+      "value": "quicksilvercr.azurecr.io"
+    },
+    "apiImage": {
+      "value": "quicksilver-api:latest"
+    },
+    "webImage": {
+      "value": "quicksilver-web:latest"
+    },
+    "dbAdminPassword": {
+      "value": "Quicksilver#Azure2026!"
+    }
+  }
+}
+

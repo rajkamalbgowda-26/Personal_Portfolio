@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Next.js build outputs
+web/.next/
+web/out/
+web/tsconfig.tsbuildinfo
+
+# Environment & OS files
+.env
+.env.local
+web/.env.local
+api/.env
+.DS_Store
+*.log
+.history/

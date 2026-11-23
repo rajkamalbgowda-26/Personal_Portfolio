@@ -1,0 +1,589 @@
+# QUICKSILVER PORTFOLIO CONTENT SPECIFICATION
+# Single source of truth for Web UI, FastAPI endpoints, and Architect Twin RAG
+# Reflects authentic enterprise AI leadership, 5 flagship products, and verified metrics.
+
+profile:
+  name: "Rajkamal B Gowda"
+  initials: "RG"
+  title: "AI & ML Manager / AI Application Architect"
+  location: "Bengaluru, India · Thinking Globally"
+  tagline: "Human vision. Machine intelligence. Building agentic products and enterprise automation."
+  bio: >
+    AI & ML leader building agentic products and enterprise automation. I connect AI, cloud,
+    and teams to turn ambitious ideas into useful products. Almost 10 years of experience,
+    approximately USD $90M+ in cumulative business impact, and original published NLP research.
+  philosophy:
+    - "Architecture is a business decision written in code."
+    - "An AI agent is only as dependable as the determinism of its grounding tools."
+    - "Production value happens at the intersection of latency budgets and business SLAs."
+  links:
+    linkedin: "https://linkedin.com/in/rajkamalgowda"
+    github: "https://github.com/rajkamalgowda"
+    email: "rajkamalgowda.ai@gmail.com"
+    cv_pdf: "/assets/cv.pdf"
+
+metrics:
+  years_experience: 10
+  revenue_impact: "$90M+ delivered"
+  revenue_impact_usd: 90000000
+  clients_served: 25
+  enterprise_clients: "25+ (Microsoft, LinkedIn, Amazon)"
+  team_size: 50
+  engineers_led: 50
+  projects_delivered: 25
+  models_in_production: 34
+  uptime_sla_percent: 99.9
+  avg_p99_latency_ms: 180
+  tokens_processed_monthly: "180M+"
+
+skills:
+  - group: "AI & Machine Learning"
+    level: 5
+    years: 10
+    tech: ["Agentic AI", "LangGraph", "Semantic Kernel", "Azure OpenAI", "Hybrid RAG", "Fine-Tuning", "NLP", "Computer Vision", "LLM Evaluation"]
+  - group: "Cloud & Engineering"
+    level: 5
+    years: 9
+    tech: ["Azure Cloud", "AWS", "Google Cloud", "FastAPI", "Python", "Kubernetes", "Docker", "Distributed Systems", "Kafka", "PostgreSQL"]
+  - group: "Product & Leadership"
+    level: 5
+    years: 7
+    tech: ["AI Product Delivery", "Cross-Functional Squad Leadership", "ADRs & Systems Architecture", "Enterprise Governance", "Sprint Operations", "Talent Mentorship"]
+  - group: "Data Engineering & MLOps"
+    level: 5
+    years: 8
+    tech: ["10TB+ Daily Pipelines", "Azure AI Search", "Redis Feature Stores", "Polars", "Vector DBs (pgvector)", "CI/CD & Blue/Green Swaps"]
+  - group: "Frontend & Full-Stack"
+    level: 4
+    years: 6
+    tech: ["Next.js 14 App Router", "TypeScript Strict", "Tailwind CSS", "Interactive WebGL", "Real-time WebSockets & SSE"]
+
+projects:
+  - slug: "txtsense"
+    title: "TXTSense: Agentic Intelligence & Ingestion Platform"
+    domain: "Agentic AI & Product"
+    client: "Global Enterprise Clients (Microsoft, LinkedIn, Amazon)"
+    cover: "/assets/generated/project-hyperion.png"
+    year: 2026
+    role: "AI & ML Manager, squad of 14 engineers"
+    problem: "Enterprise teams spent over 70% of their operational cycles manually reading, parsing, and extracting intelligence from fragmented documents, complex spreadsheets, and customer conversation logs."
+    solution: "Designed and delivered TXTSense: an end-to-end agentic AI platform combining multi-source ingestion (documents, structured data, conversations) with intelligent analysis and deterministic workflow orchestration."
+    stack: ["FastAPI", "LangGraph", "Azure OpenAI GPT-4o", "Azure AI Search", "PostgreSQL", "Docker", "Kubernetes"]
+    metrics:
+      - { label: "Manual Analysis Automated", value: "70%" }
+      - { label: "Processing Turnaround", value: "Sub-2 min" }
+      - { label: "Enterprise Ingestion", value: "10M+ docs" }
+    decisions:
+      - choice: "4-Stage Deterministic Pipeline: Ingest → Analyze → Orchestrate → Act"
+        over: "Free-form autonomous agent looping"
+        because: "Autonomous looping often resulted in non-terminating edge cases and unpredictable API billing; the staged pipeline guarantees deterministic completion, strict schema validation, and auditability."
+      - choice: "Hybrid retrieval combining sparse BM25 and dense embeddings with reciprocal rank fusion"
+        over: "Pure vector similarity"
+        because: "Domain documents contained alphanumeric IDs, part numbers, and contract clause codes that vector embeddings missed."
+    evaluation: "Triad evaluation grading (context relevance, groundedness, answer faithfulness) scoring > 0.96 across 25,000 golden enterprise documents."
+    deployment: "Deployed on Azure Container Apps with KEDA auto-scaling, private virtual network isolation, and Azure Key Vault credential management."
+    leadership: "Led 14 engineers across backend, data, and ML domains; instituted bi-weekly architecture reviews and automated CI/CD evaluation gates."
+    lessons:
+      - "Explicit schema fencing prevents LLM hallucinations in downstream business automation."
+      - "Structuring ingestion into discrete verifiable states is key to enterprise compliance."
+    architecture: "enterprise-multi-agent"
+
+  - slug: "datatodeck"
+    title: "DataToDeck: Automated Storytelling & Insight Engine"
+    domain: "Agentic AI & Automated Reporting"
+    client: "Executive Decision Support (In Development)"
+    cover: "/assets/generated/project-veritas.png"
+    year: 2026
+    role: "Product & AI Architecture Lead"
+    problem: "Converting raw analytics data into executive-ready presentation decks took analysts 8 to 12 hours per reporting cycle, causing critical reporting delays."
+    solution: "Architected DataToDeck to transform structured and unstructured data into professional, presentation-ready slide decks with coherent executive narratives."
+    stack: ["Python", "FastAPI", "LangGraph", "Azure OpenAI GPT-4o", "Office OpenXML", "React", "Polars"]
+    metrics:
+      - { label: "Pipeline Flow", value: "01 → 08 Steps" }
+      - { label: "Deck Generation Time", value: "< 45 sec" }
+      - { label: "Reporting Effort Saved", value: "85%" }
+    decisions:
+      - choice: "Two-phase hierarchical generation: Narrative Outline first, then slide-by-slide drafting"
+        over: "Single-shot complete deck generation"
+        because: "Single-shot generation loses narrative coherence over multiple slides and exhausts output token budgets, whereas outline-first guarantees thematic continuity."
+      - choice: "Programmatic OpenXML AST generation instead of raw HTML-to-PDF converters"
+        over: "HTML-to-canvas screenshotting"
+        because: "Programmatic OpenXML outputs fully editable, native PowerPoint (.pptx) slides that stakeholders can tweak directly."
+    evaluation: "Tested across 500 financial, marketing, and operational datasets with automated layout collision and typography checks."
+    deployment: "Containerized microservice on Azure Kubernetes Service with asynchronous worker queues managed by Celery and Redis."
+    leadership: "Orchestrated cross-functional collaboration between frontend engineers, data scientists, and business intelligence stakeholders."
+    lessons:
+      - "Story structure must follow pyramid principle (Executive Summary → Key Findings → Supporting Data)."
+      - "Generating editable vector components beats static image generation every time."
+    architecture: "production-hybrid-rag"
+
+  - slug: "voc-intelligence"
+    title: "Voice of the Customer: Feedback Intelligence & Root-Cause Clustering"
+    domain: "Customer Intelligence & NLP"
+    client: "Fortune 500 Consumer & Tech Enterprises"
+    cover: "/assets/generated/project-aegis.png"
+    year: 2025
+    role: "Lead AI Architect & Delivery Manager"
+    problem: "Millions of customer support transcripts, survey comments, and app reviews poured in monthly without automated prioritization, causing systemic product issues to persist for quarters."
+    solution: "Engineered an enterprise VoC intelligence platform applying hierarchical sentiment state reconciliation and agentic root-cause clustering to turn noise into prioritized action items."
+    stack: ["Python", "FastAPI", "Azure AI Search", "BERTopic", "GPT-4o", "PostgreSQL", "Kafka"]
+    metrics:
+      - { label: "Recurring Issues Reduced", value: "25%" }
+      - { label: "Feedback Ingested", value: "5M+ / mo" }
+      - { label: "Root-Cause Precision", value: "94.2%" }
+    decisions:
+      - choice: "Version-fenced hierarchical sentiment propagation with deterministic confidence gating"
+        over: "Standard flat sentiment classification"
+        because: "Flat classification masks contradictory feedback; hierarchical channels keep direct evidence distinct from inherited sentiment, preventing false alerts."
+      - choice: "Kafka event streaming with micro-batch clustering"
+        over: "Daily scheduled ETL batch processing"
+        because: "Streaming triage allowed immediate escalation of severe outages within 5 minutes of customer complaint spikes."
+    evaluation: "Benchmarked on 2M historic tickets with human agent agreement metrics reaching 0.93 Cohen's kappa."
+    deployment: "Multi-tenant deployment across Azure East US and West Europe with geo-replicated databases and automated failover."
+    leadership: "Managed 12 engineers and data analysts; established weekly SLA tracking and client demo governance."
+    lessons:
+      - "Preserving contradiction in customer sentiment is far more valuable than averaging it away."
+      - "Actionable tickets require pinpointing micro-themes rather than generic category buckets."
+    architecture: "enterprise-multi-agent"
+
+  - slug: "virtual-persona"
+    title: "Virtual Persona: Multi-Modal Conversational AI & Avatars"
+    domain: "Conversational AI & Human-AI Interaction"
+    client: "Global Commercial & Consumer Brands"
+    cover: "/assets/generated/project-quicksilver.png"
+    year: 2024
+    role: "Principal AI Systems Architect"
+    problem: "Traditional text chatbots suffered from high abandon rates (62%) and lacked personal empathy and multi-modal engagement for complex customer onboarding."
+    solution: "Built Virtual Persona: an interactive digital avatar platform uniting conversational LLM intelligence, real-time voice streaming, and dynamic personality states for human-like engagement."
+    stack: ["FastAPI", "Azure Speech Services", "GPT-4o Realtime API", "WebRTC", "Three.js", "Redis"]
+    metrics:
+      - { label: "Operational Efficiency Gain", value: "40%" }
+      - { label: "Voice Latency Round-Trip", value: "< 280ms" }
+      - { label: "Session Completion Rate", value: "88%" }
+    decisions:
+      - choice: "Full-duplex WebRTC audio streaming with client-side VAD (Voice Activity Detection)"
+        over: "HTTP REST chunking"
+        because: "HTTP REST chunking introduced >1.2s lag; WebRTC enabled sub-300ms natural interruptions and fluid conversational pacing."
+      - choice: "Lightweight phoneme-driven blend shape animation"
+        over: "Server-side video streaming"
+        because: "Client-side blend shapes reduced server bandwidth costs by 94% while maintaining 60 FPS rendering on mobile devices."
+    evaluation: "Evaluated across 10,000 user onboarding sessions measuring comprehension, empathy scores, and task completion speed."
+    deployment: "Edge deployment on Azure Front Door with WebRTC signaling servers running on autoscaled container clusters."
+    leadership: "Led squad of 8 full-stack and graphics engineers, coordinating directly with UX researchers."
+    lessons:
+      - "Sub-300ms voice latency is the threshold where conversational AI transitions from feeling robotic to feeling human."
+    architecture: "portfolio-architecture"
+
+  - slug: "sfi-s360"
+    title: "SFI / S360: Enterprise Quality Validation & Regulatory Readiness"
+    domain: "Enterprise Implementation & Quality"
+    client: "Regulated Enterprise Platforms"
+    cover: "/assets/generated/project-kronos.png"
+    year: 2024
+    role: "Delivery Manager & Technical Lead"
+    problem: "Enterprise system deployments in regulated environments were plagued by validation delays, compliance bottlenecks, and audit vulnerabilities."
+    solution: "Directed cross-functional implementation and validation for SFI / S360, establishing quality-by-design standards, automated compliance harnesses, and zero-defect delivery."
+    stack: ["Azure Cloud", "Docker", "Python", "FastAPI", "Compliance Test Suites", "PostgreSQL"]
+    metrics:
+      - { label: "Critical Validation Findings", value: "0" }
+      - { label: "Audit Readiness", value: "100%" }
+      - { label: "Deployment Acceleration", value: "3.5x" }
+    decisions:
+      - choice: "Continuous automated compliance testing embedded directly into Git PR checks"
+        over: "Manual end-of-quarter validation audits"
+        because: "Continuous checks caught compliance drift within minutes rather than months later during formal audits."
+      - choice: "Immutable append-only audit ledger with cryptographic verification"
+        over: "Standard database mutation logs"
+        because: "Immutable ledgers satisfied strict 21 CFR Part 11 and SOC2 Type II non-repudiation mandates."
+    evaluation: "Subjected to rigorous third-party regulatory audits and penetration tests with zero critical or major findings."
+    deployment: "Air-gapped Azure government and private tenant regions with strict RBAC and cryptographic envelope encryption."
+    leadership: "Led 15+ cross-functional engineers, QA specialists, and compliance officers through multiple production release gates."
+    lessons:
+      - "Compliance is an architectural property that must be built in from day zero, not patched on at the end."
+    architecture: "enterprise-multi-agent"
+
+  - slug: "modefin-kyc"
+    title: "Digital Banking Core: Video KYC & Biometric Authentication"
+    domain: "Fintech & Core Banking"
+    client: "Tier-1 International Retail Banks (Modefin)"
+    cover: "/assets/generated/art-architecture.png"
+    year: 2022
+    role: "Lead Full-Stack & Conversational AI Engineer"
+    problem: "Manual customer onboarding in retail banking required up to 5 business days for physical document checks, causing over 45% drop-off rates across emerging markets."
+    solution: "Architected a real-time Video KYC (vKYC) platform incorporating facial biometric matching, liveness detection, document OCR extraction, and core banking API integrations."
+    stack: ["FastAPI", "Python", "WebSockets", "OpenCV", "Tesseract OCR", "PostgreSQL", "Redis", "Docker"]
+    metrics:
+      - { label: "Onboarding Turnaround", value: "< 5 mins" }
+      - { label: "Verification Accuracy", value: "99.4%" }
+      - { label: "Drop-Off Reduction", value: "65%" }
+    decisions:
+      - choice: "Client-side pre-processing and document framing validation"
+        over: "Raw server-side video ingestion"
+        because: "Pre-validating card orientation and lighting on the client reduced server bandwidth by 78% and eliminated failed OCR passes."
+    evaluation: "Stress-tested with 50,000 simulated concurrent account openings and certified against central banking regulatory frameworks."
+    deployment: "Deployed in sovereign data centers compliant with local financial data residency regulations."
+    leadership: "Led squad of 9 engineers across mobile SDK, backend microservices, and compliance audit teams."
+    lessons:
+      - "Low-bandwidth client robustness is critical when rolling out digital banking across emerging mobile networks."
+    architecture: "portfolio-architecture"
+
+  - slug: "synthetic-persona-simulation"
+    title: "Synthetic Personas: Consumer Feedback & Concept Testing Engine"
+    domain: "Consumer AI & Generative Simulation"
+    client: "Global CPG Enterprises (Mars, Colgate, L'Oréal)"
+    cover: "/assets/generated/art-capabilities.png"
+    year: 2024
+    role: "AI Manager & Generative AI Practice Lead"
+    problem: "Qualitative concept testing with real consumer focus groups cost over $120,000 per cycle and required 6 to 8 weeks, severely slowing agile consumer product innovation."
+    solution: "Developed multi-agent synthetic persona simulation engine using GPT-4o grounded in historical consumer research, demographic profiles, and taste metrics to simulate diverse focus groups in real time."
+    stack: ["Python", "LangGraph", "Azure OpenAI GPT-4o", "Polars", "FastAPI", "React", "pgvector"]
+    metrics:
+      - { label: "Turnaround Reduction", value: "> 90%" }
+      - { label: "Cost Savings per Test", value: "82%" }
+      - { label: "Synthetic Alignment", value: "91.8%" }
+    decisions:
+      - choice: "Grounded memory architecture with persona consistency constraints"
+        over: "Naive single-prompt persona simulation"
+        because: "Naive single-prompt agents suffered from demographic drift during multi-turn interviews; grounded state constraints guarantee authentic behavioral consistency."
+    evaluation: "Validated against 40 historical consumer panel datasets; demonstrated 91.8% statistical alignment on purchase intent and sentiment polarity."
+    deployment: "Deployed on Azure Container Apps with asynchronous background job processing and interactive Next.js analytics dashboards."
+    leadership: "Directed 10 engineers and collaborated directly with VP of Global Insights and Consumer Science Directors."
+    lessons:
+      - "Synthetic consumer simulation accelerates iterative pre-filtering so real human panels test only winning concepts."
+    architecture: "enterprise-multi-agent"
+
+  - slug: "contract-intelligence-copilot"
+    title: "Enterprise Contract Intelligence & Regulatory Copilot"
+    domain: "Enterprise Legal Tech & Hybrid RAG"
+    client: "Fortune 500 Enterprise Legal & Operations"
+    cover: "/assets/generated/art-agentic.png"
+    year: 2025
+    role: "Principal AI Application Architect"
+    problem: "Corporate legal teams faced severe backlogs reviewing 50+ page MSAs, SOWs, and vendor agreements, taking weeks to identify indemnification liabilities and compliance breaches."
+    solution: "Engineered high-concurrency hybrid vector retrieval and clause risk analysis copilot with citation-grounded verification, deterministic confidence gating, and automated redlining suggestions."
+    stack: ["FastAPI", "Azure OpenAI GPT-4o", "Azure AI Search", "LangChain", "PostgreSQL", "Docker"]
+    metrics:
+      - { label: "Contract Review Speed", value: "10x Faster" }
+      - { label: "Clause Risk Recall", value: "98.7%" }
+      - { label: "Legal Hours Saved", value: "1,400+ / mo" }
+    decisions:
+      - choice: "Cross-encoder reranking after initial hybrid retrieval"
+        over: "Direct vector cosine similarity top-k"
+        because: "Legal terminology has subtle negative phrasing ('notwithstanding anything to the contrary'); cross-encoders accurately captured inverted semantic logic."
+    evaluation: "Benchmarked on 5,000 enterprise contracts with strict precision/recall evaluation against senior general counsel gold standards."
+    deployment: "Deployed on Azure Container Apps with zero-data-retention compliance and Azure Key Vault secret management."
+    leadership: "Led squad of 11 engineers, data engineers, and prompt evaluators; co-designed playbooks with enterprise general counsel."
+    lessons:
+      - "In enterprise legal AI, an unsupported claim is worse than no claim; strict source-citation grounding is non-negotiable."
+    architecture: "production-hybrid-rag"
+
+patent:
+  application_no: "202641107255"
+  status: "Published Patent Application - Pending Grant"
+  title: "Causal-Consistent Hierarchical Sentiment State Reconciliation Using Version-Fenced Reversible Contribution Chains"
+  summary: "A computer-implemented architecture for maintaining consistent, traceable sentiment across a thematic hierarchy (macro-themes, themes, and micro-themes). The invention addresses how sentiment states should be updated when source evidence changes, conflicting sentiment appears, or the theme hierarchy evolves."
+  contributions:
+    - id: "01"
+      title: "Separate sentiment channels"
+      desc: "Maintains direct evidence and sentiment inherited from descendant themes independently, preserving their origins."
+    - id: "02"
+      title: "Traceable contribution chains"
+      desc: "Links sentiment updates to source evidence, predecessor contributions, and transformation records."
+    - id: "03"
+      title: "Version-validated transactions"
+      desc: "Checks graph and node versions before committing related updates, helping prevent stale or partially applied chains."
+    - id: "04"
+      title: "Contradiction handling"
+      desc: "Preserves conflicting sentiment and supports controlled attenuation or quarantine of disputed propagation."
+    - id: "05"
+      title: "Reversible updates"
+      desc: "Supports targeted correction and retraction using the original committed contribution path, even after the hierarchy changes."
+    - id: "06"
+      title: "Recovery and replay"
+      desc: "Uses committed records and version-bound path certificates to reconstruct state without repeating inference on unchanged evidence."
+  applications:
+    - "Customer experience analytics"
+    - "Support-ticket intelligence"
+    - "Contact-centre analytics"
+    - "Product-feedback monitoring"
+    - "Survey analysis"
+    - "Enterprise text analytics"
+  domains:
+    - "Natural Language Processing"
+    - "Hierarchical Sentiment Analysis"
+    - "Graph State Management"
+    - "Data Provenance"
+    - "Transactional Consistency"
+    - "Incremental Analytics"
+
+industries:
+  - name: "TMT"
+    subtitle: "Technology · Media · Telecom"
+    detail: "Three connected sectors. Scaled AI products, high-throughput media analytics, and telecommunication intelligence."
+  - name: "Banking & Financial Services"
+    subtitle: "Financial Services & Fintech"
+    detail: "Autonomous financial analysis, fraud detection, compliance automation, and audit-grade systems."
+  - name: "Retail & Commerce"
+    subtitle: "Commerce & Digital Shelf"
+    detail: "Customer journeys, real-time personalization, inventory intelligence, and omnichannel analytics."
+  - name: "Consumer Goods (CPG)"
+    subtitle: "Consumer Brands & Supply Chain"
+    detail: "Demand forecasting, brand reputation monitoring, and market basket analysis."
+  - name: "Healthcare & Life Sciences"
+    subtitle: "Pharma, Diagnostics & HealthTech"
+    detail: "Clinical intelligence, regulatory compliance, HIPAA-governed pipelines, and unstructured medical text parsing."
+  - name: "Industrial & Manufacturing"
+    subtitle: "Manufacturing & Industrial IoT"
+    detail: "Telemetry pipelines, predictive maintenance, quality-by-design systems, and factory intelligence."
+  - name: "Research & Consulting"
+    subtitle: "Strategy & Advisory Firms"
+    detail: "Automated synthesis, market intelligence, presentation generation, and executive decision support."
+
+timeline:
+  - year: "AUG 2022 - PRESENT"
+    title: "AI Manager"
+    company: "C5i (Course5 Intelligence) · Bengaluru"
+    logo: "/assets/logos/c5i-logo.svg"
+    detail: "Directing cross-functional AI squads to architect and deploy cloud-native Generative AI and agentic platforms for Fortune 500 enterprises (Microsoft, Mars, Colgate, L'Oréal). Spearheading flagship platforms including TXTSense and Synthetic Virtual Personas with >90% reduction in manual analysis turnaround, leading 50+ engineers."
+    impact: "Fortune 500 Clients · $90M+ Business Impact · TXTSense & Virtual Personas · 50+ Engineers Led"
+  - year: "MAR 2020 - AUG 2022"
+    title: "Fullstack Development + AI"
+    company: "Modefin · Bengaluru"
+    logo: "/assets/logos/modefin-logo.svg"
+    detail: "Architected and deployed full-stack digital banking solutions and conversational AI engines. Built intelligent banking chatbots utilizing FastAPI, WebSockets, Rasa, and Dialogflow. Engineered digital KYC onboarding with OCR, face match, and video verification, cutting account turnaround to <15 mins."
+    impact: "Conversational AI Chatbots · Digital KYC & Video Verification · Core Banking APIs · Django & FastAPI"
+
+team:
+  size: 50
+  roles:
+    - "Principal AI & ML Engineers"
+    - "Senior MLOps & Cloud Architects"
+    - "Full-Stack AI Developers"
+    - "Data Engineers & Pipeline Specialists"
+    - "Product Owners & QA Compliance Leads"
+  how_i_lead:
+    - "Weekly architecture reviews with written decision records (ADRs) before any code is merged."
+    - "Mandatory evaluation gates (groundedness, context relevance, faithfulness) before any model reaches production."
+    - "Zero-downtime blue/green container swaps on Azure Container Apps with automated synthetic canary traffic."
+    - "Ruthless token and latency budget tracking via OpenTelemetry to keep cost per inference predictable."
+
+architectures:
+  - slug: "enterprise-multi-agent"
+    title: "TXTSense & VoC Enterprise Ingestion & Orchestration Mesh"
+    summary: "Production multi-agent mesh running deterministic state-machine graphs, sandboxed tool execution, and zero-trust security perimeters."
+    layers: ["Client Experience", "Ingress & Gateway", "Agent Orchestration", "Sandboxed Tools", "Frontier Models", "Data & Vector Store", "Observability & Audit"]
+    nodes:
+      - id: "client-ui"
+        label: "Next.js Web Atelier"
+        layer: "Client Experience"
+        why: "Provides 120 FPS spatial rendering and instantaneous SSE token streaming to end users."
+        scaling: "Edge cached via Azure Front Door Anycast CDN."
+        failure_modes: "Falls back to static SSR rendering and Calm mode if WebGL context is lost."
+        cost: "Minimal static edge compute."
+        security: "Content Security Policy, strict cookie encryption, TLS 1.3."
+      - id: "apim"
+        label: "Azure Front Door & Ingress Gateway"
+        layer: "Ingress & Gateway"
+        why: "Protects backend containers with global Anycast DDoS mitigation, WAF rules, and token bucket rate-limiting."
+        scaling: "Autoscales across global edge POPs."
+        failure_modes: "Failover route group to backup container replica."
+        cost: "$35/month base + $0.01 per GB bandwidth."
+        security: "Enforces TLS 1.3, managed certificates, OWASP top 10 WAF rules."
+      - id: "fastapi-core"
+        label: "FastAPI Async Controller"
+        layer: "Agent Orchestration"
+        why: "High-throughput non-blocking event loop in Python 3.12 managing multi-agent dispatch and streaming SSE protocols."
+        scaling: "Azure Container Apps KEDA rules scale from 1 to 10 replicas on HTTP queue pressure."
+        failure_modes: "Graceful task timeout with circuit breaker response."
+        cost: "Pay-per-second vCPU/GiB memory allocation."
+        security: "Non-root Alpine container, internal VNet private endpoints."
+      - id: "langgraph-agent"
+        label: "LangGraph State Machine Engine"
+        layer: "Agent Orchestration"
+        why: "Enforces deterministic DAG state transitions, cyclic reflection checks, and verifiable execution checkpoints."
+        scaling: "Stateless runner nodes persist checkpoints into Redis/PostgreSQL."
+        failure_modes: "Bounded recursion limit (max 10 iterations) triggers human escalation."
+        cost: "Compute included in FastAPI worker pod."
+        security: "Zero code execution privileges; strictly structured Pydantic tool schemas."
+      - id: "tool-executor"
+        label: "Sandboxed Tool Executor"
+        layer: "Sandboxed Tools"
+        why: "Isolates external system integrations (Azure Resource Graph, SQL, REST APIs) in strictly typed harnesses."
+        scaling: "Asynchronous task queue with rate-limited connection pools."
+        failure_modes: "Exponential backoff with jitter on 429/503 errors."
+        cost: "Negligible compute overhead."
+        security: "Role-Based Access Control (RBAC) via Azure Managed Identity."
+      - id: "azure-openai"
+        label: "Azure OpenAI Service (GPT-4o)"
+        layer: "Frontier Models"
+        why: "State-of-the-art reasoning capabilities with enterprise SLA, zero data retention for training, and dedicated TPUs."
+        scaling: "Provisioned Throughput Units (PTU) with regional spillover endpoints."
+        failure_modes: "Automatic fallback to local quantized model or cached completions."
+        cost: "$5.00 / 1M input tokens, $15.00 / 1M output tokens."
+      - id: "search-vector"
+        label: "Azure AI Search (Hybrid + Reranker)"
+        layer: "Data & Vector Store"
+        why: "Sub-50ms hybrid retrieval combining BM25 keyword search with dense vectors and cross-encoder semantic reranking."
+        scaling: "Automatic replica scaling on query load spikes."
+        failure_modes: "Degrades to sparse BM25 indexing if vector embedding endpoint times out."
+        cost: "Standard S1 instance tier."
+        security: "Private link endpoint, encrypted keys via Managed Identity."
+      - id: "audit-obs"
+        label: "Azure Monitor & OpenTelemetry"
+        layer: "Observability & Audit"
+        why: "Full distributed trace spans for every LLM call, token usage tracking, and automated anomaly alerting."
+        scaling: "Elastic cloud ingestion."
+        failure_modes: "Buffered local queueing if ingestion endpoint throttles."
+        cost: "$2.30 per GB ingested."
+        security: "Immutable audit log retention for 365 days."
+    edges:
+      - { from: "client-ui", to: "apim", label: "HTTPS / WSS / TLS 1.3" }
+      - { from: "apim", to: "fastapi-core", label: "Reverse Proxy Route" }
+      - { from: "fastapi-core", to: "langgraph-agent", label: "Async State Dispatch" }
+      - { from: "langgraph-agent", to: "azure-openai", label: "Reasoning & Completion" }
+      - { from: "langgraph-agent", to: "tool-executor", label: "Typed Tool Call" }
+      - { from: "tool-executor", to: "search-vector", label: "Hybrid Query & Rerank" }
+      - { from: "fastapi-core", to: "audit-obs", label: "OTel Tracing Spans" }
+    request_path:
+      - { step: 1, node: "client-ui", caption: "User submits complex unstructured document batch in Next.js web application." }
+      - { step: 2, node: "apim", caption: "Azure Front Door verifies JWT token, rate limits to 60 req/min, and routes via private backbone." }
+      - { step: 3, node: "fastapi-core", caption: "FastAPI parses payload into Pydantic schema and establishes SSE streaming session." }
+      - { step: 4, node: "langgraph-agent", caption: "LangGraph state machine initiates multi-stage ingestion DAG (Ingest → Analyze → Orchestrate → Act)." }
+      - { step: 5, node: "azure-openai", caption: "GPT-4o generates structured reasoning plan with deterministic tool parameter schemas." }
+      - { step: 6, node: "tool-executor", caption: "Tool executor queries Azure AI Search with reciprocal rank fusion." }
+      - { step: 7, node: "search-vector", caption: "Hybrid search returns top-k passage chunks in 42ms with grounded citations." }
+      - { step: 8, node: "fastapi-core", caption: "Controller streams finalized response chunks back to user with 0ms buffering." }
+    overlays:
+      latency_budget_ms:
+        client-ui: 15
+        apim: 12
+        fastapi-core: 8
+        langgraph-agent: 25
+        azure-openai: 120
+        tool-executor: 18
+        search-vector: 42
+        total: 240
+      cost_per_request_usd: "0.0034"
+
+  - slug: "production-hybrid-rag"
+    title: "DataToDeck Automated Storytelling Pipeline"
+    summary: "Two-stage insight extraction and executive narrative generation pipeline with native PowerPoint OpenXML compilation."
+    layers: ["Data Ingestion", "Semantic Synthesis", "Narrative Structuring", "Deck Assembly"]
+    nodes:
+      - id: "data-ingest"
+        label: "Multi-Source Ingestion"
+        layer: "Data Ingestion"
+        why: "Ingests CSV, Excel, SQL, and enterprise analytics metrics with automated type inference."
+      - id: "synthesis"
+        label: "Semantic Insight Extraction"
+        layer: "Semantic Synthesis"
+        why: "Calculates anomaly thresholds, growth deltas, and strategic takeaways via GPT-4o."
+      - id: "narrative"
+        label: "Pyramid Principle Structurer"
+        layer: "Narrative Structuring"
+        why: "Assembles 8-step executive narrative (Situation → Complication → Resolution → Recommendations)."
+      - id: "openxml"
+        label: "OpenXML Presentation Compiler"
+        layer: "Deck Assembly"
+        why: "Compiles native editable PowerPoint (.pptx) slides with custom corporate theme guidelines."
+    edges:
+      - { from: "data-ingest", to: "synthesis", label: "Structured Tables" }
+      - { from: "synthesis", to: "narrative", label: "Executive Insights" }
+      - { from: "narrative", to: "openxml", label: "Slide AST Model" }
+    request_path:
+      - { step: 1, node: "data-ingest", caption: "Raw telemetry tables normalized into Polars columnar frames." }
+      - { step: 2, node: "synthesis", caption: "LLM extracts top 3 business inflection points." }
+      - { step: 3, node: "narrative", caption: "8-slide narrative outline planned and validated." }
+      - { step: 4, node: "openxml", caption: "Native PPTX slide deck generated in <45 seconds." }
+    overlays:
+      latency_budget_ms:
+        data-ingest: 180
+        synthesis: 450
+        narrative: 320
+        openxml: 210
+        total: 1160
+      cost_per_request_usd: "0.0085"
+
+  - slug: "portfolio-architecture"
+    title: "Virtual Persona Real-Time Conversational Architecture"
+    summary: "Sub-300ms full-duplex conversational voice avatar architecture using WebRTC, Azure Speech, and client blend shapes."
+    layers: ["Audio Capture", "WebRTC Gateway", "Speech & Dialogue", "Avatar Rendering"]
+    nodes:
+      - id: "audio-capture"
+        label: "Browser Audio + VAD"
+        layer: "Audio Capture"
+        why: "Real-time voice activity detection running client-side in WebAssembly."
+      - id: "webrtc-gw"
+        label: "Azure WebRTC Gateway"
+        layer: "WebRTC Gateway"
+        why: "Full-duplex bidirectional streaming with <50ms network jitter."
+      - id: "dialogue-engine"
+        label: "FastAPI + GPT-4o Realtime"
+        layer: "Speech & Dialogue"
+        why: "Direct streaming audio-in to audio-out token synthesis."
+      - id: "avatar-render"
+        label: "Client 60 FPS Blend Shapes"
+        layer: "Avatar Rendering"
+        why: "Phoneme-driven facial articulation with dynamic emotional expression."
+    edges:
+      - { from: "audio-capture", to: "webrtc-gw", label: "PCM Audio Stream" }
+      - { from: "webrtc-gw", to: "dialogue-engine", label: "Bi-directional Socket" }
+      - { from: "dialogue-engine", to: "avatar-render", label: "Viseme & Speech Packets" }
+    request_path:
+      - { step: 1, node: "audio-capture", caption: "User speaks into browser microphone; VAD detects speech boundary." }
+      - { step: 2, node: "webrtc-gw", caption: "Audio streamed over low-latency WebRTC channel." }
+      - { step: 3, node: "dialogue-engine", caption: "Realtime dialogue model generates contextual audio response in 220ms." }
+      - { step: 4, node: "avatar-render", caption: "Digital avatar articulates speech with realistic visemes at 60 FPS." }
+    overlays:
+      latency_budget_ms:
+        audio-capture: 20
+        webrtc-gw: 35
+        dialogue-engine: 210
+        avatar-render: 15
+        total: 280
+      cost_per_request_usd: "0.0055"
+
+agent_traces:
+  - task: "TXTSense: Ingest multi-page vendor contract and extract liability indemnity clauses"
+    steps:
+      - type: "plan"
+        text: "Ingest PDF contract; isolate section 8 (Indemnification) and cross-reference against corporate liability risk matrix."
+        ms: 320
+        tokens: 240
+      - type: "tool"
+        name: "extract_document_sections"
+        text: "Extract pages 14-18 with bounding boxes; parse table of indemnities into structured Pydantic model."
+        ms: 380
+      - type: "reflection"
+        text: "Detected uncapped consequential damages clause in Section 8.3. Flagging high-risk conflict."
+        ms: 190
+      - type: "tool"
+        name: "orchestrate_risk_triage"
+        text: "Dispatch webhook to Legal Counsel review queue with clause diff and suggested standard fallback language."
+        ms: 290
+      - type: "answer"
+        text: "Contract parsed in 1.18s: 14 clauses extracted with 100% confidence; 1 high-risk clause flagged and escalated to Legal."
+        ms: 410
+        tokens: 310
+
+  - task: "DataToDeck: Synthesize Q3 e-commerce conversion telemetry into 4-slide board summary"
+    steps:
+      - type: "plan"
+        text: "Load transaction event log (1.2M rows); calculate MoM basket size and identify checkout drop-off inflection point."
+        ms: 280
+        tokens: 210
+      - type: "tool"
+        name: "aggregate_metrics_polars"
+        text: "Polars group-by: Mobile iOS conversion -14.2% following v4.2 update; desktop conversion stable at +3.1%."
+        ms: 150
+      - type: "reflection"
+        text: "Key business narrative established: Mobile checkout friction is suppressing $1.8M ARR. Structure slides with actionable remedy."
+        ms: 160
+      - type: "tool"
+        name: "generate_openxml_slides"
+        text: "Compile 4-slide presentation deck: Executive Summary, Anomaly Analysis, Root Cause, and Immediate Remediation Plan."
+        ms: 540
+      - type: "answer"
+        text: "Presentation deck compiled: 4 slides with native editable charts generated in 1.13s."
+        ms: 380
+        tokens: 290

@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: quicksilver_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-quicksilver}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-quicksilver_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-quicksilver_db}
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quicksilver -d quicksilver_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: quicksilver_api
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql://quicksilver:quicksilver_secure_pass@postgres:5432/quicksilver_db
+      PORTFOLIO_YAML_PATH: /app/content/portfolio.yaml
+      CORS_ORIGINS: '["http://localhost:3000","http://localhost:3005","https://rajkamalgowda.dev"]'
+      RATE_LIMIT_PER_MINUTE: 60
+    volumes:
+      - ./content:/app/content:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    container_name: quicksilver_web
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
+    driver: local

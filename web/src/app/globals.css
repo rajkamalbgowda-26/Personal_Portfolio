@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, html[data-theme="light"], html {
+  --bg-porcelain: #FAFAFA;
+  --bg-pearl: #F1F5F9;
+  --silver-100: #E2E8F0;
+  --silver-300: #CBD5E1;
+  --silver-500: #64748B;
+  --silver-700: #334155;
+  --graphite-900: #0F172A;
+  --graphite-600: #334155;
+  --iris-cyan: #0284C7;
+  --iris-lilac: #7C3AED;
+  --iris-peach: #DB2777;
+  --signal: #2563EB;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --glow-color: rgba(37, 99, 235, 0.08);
+
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  background-color: var(--bg-porcelain);
+  color: var(--graphite-900);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+section[id], .snap-station {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  scroll-margin-top: 0px;
+}
+
+@media (max-width: 1023px) {
+  section[id], .snap-station {
+    scroll-margin-top: 64px;
+  }
+}
+
+body {
+  background: var(--bg-porcelain);
+  color: var(--graphite-900);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+a, button, [role="button"], input[type="submit"], select {
+  cursor: pointer;
+}
+
+/* Thin-film Holographic Border Gradient */
+.border-holo {
+  position: relative;
+}
+.border-holo::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--iris-cyan), var(--iris-lilac), var(--iris-peach));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.border-holo:hover::before {
+  opacity: 1;
+}
+
+/* System Annotation Label */
+.sys-annotation {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite-600);
+}
+
+/* Studio Ambient Grid */
+.bg-studio-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+}
+
+/* Kinetic Animated Border Beam */
+@keyframes border-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-border-beam {
+  animation: border-beam 5s linear infinite;
+}
+
+/* 3D Perspective Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Subtle Floating 3D Float Animation */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+/* Staggered Floating Levitation Keyframes for Awards & Cards */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 6s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-3 5.5s ease-in-out infinite;
+}
+
+/* Continuous Light Sweep Glint for Certificates */
+@keyframes glint-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-glint {
+  animation: glint-sweep 4.5s ease-in-out infinite;
+}
+
+/* Cyber Glow Pulse */
+@keyframes cyber-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.2));
+  }
+  50% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.5));
+  }
+}
+
+.animate-cyber-glow {
+  animation: cyber-pulse 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-porcelain);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--silver-300);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--silver-500);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Core Web Vitals: Content Visibility (visible to prevent scroll-snap & anchor jumping) */
+.cv-auto {
+  content-visibility: visible;
+}
+
+/* Accessibility: Full Reduced-Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

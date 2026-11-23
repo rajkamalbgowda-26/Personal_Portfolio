@@ -1,0 +1,996 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Quicksilver AI Portfolio API",
+    "description": "High-performance async intelligence API serving architecture specs, case studies, and telemetry.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "description": "System health check and container uptime.",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/profile": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Get Profile",
+        "description": "Retrieve architect profile, bio, philosophy, and delivery lifecycle.",
+        "operationId": "get_profile_api_profile_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "List Projects",
+        "description": "Retrieve all production AI case studies and client projects.",
+        "operationId": "list_projects_api_projects_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProjectSchema"
+                  },
+                  "type": "array",
+                  "title": "Response List Projects Api Projects Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{slug}": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Get Project",
+        "description": "Retrieve a single project by its unique slug.",
+        "operationId": "get_project_api_projects__slug__get",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Slug"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/architectures": {
+      "get": {
+        "tags": [
+          "Architectures"
+        ],
+        "summary": "List Architectures",
+        "description": "Retrieve all reference system architectures with request topologies.",
+        "operationId": "list_architectures_api_architectures_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ArchitectureSchema"
+                  },
+                  "type": "array",
+                  "title": "Response List Architectures Api Architectures Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/architectures/{slug}": {
+      "get": {
+        "tags": [
+          "Architectures"
+        ],
+        "summary": "Get Architecture",
+        "description": "Retrieve an individual architecture spec by id.",
+        "operationId": "get_architecture_api_architectures__slug__get",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Slug"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchitectureSchema"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skills": {
+      "get": {
+        "tags": [
+          "Skills & Capabilities"
+        ],
+        "summary": "List Skills",
+        "description": "Retrieve full constellation of capabilities and technology competencies.",
+        "operationId": "list_skills_api_skills_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CapabilitySchema"
+                  },
+                  "type": "array",
+                  "title": "Response List Skills Api Skills Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/timeline": {
+      "get": {
+        "tags": [
+          "Timeline"
+        ],
+        "summary": "Get Timeline",
+        "description": "Retrieve career milestones and architectural launches.",
+        "operationId": "get_timeline_api_timeline_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/TimelineItemSchema"
+                  },
+                  "type": "array",
+                  "title": "Response Get Timeline Api Timeline Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/metrics": {
+      "get": {
+        "tags": [
+          "Metrics"
+        ],
+        "summary": "Get Metrics",
+        "description": "Retrieve live enterprise metrics and impact benchmarks.",
+        "operationId": "get_metrics_api_metrics_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricsSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "tags": [
+          "Contact Console"
+        ],
+        "summary": "Submit Contact",
+        "description": "Secure channel to transmit project inquiries and advisory requests.",
+        "operationId": "submit_contact_api_contact_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactFormRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactFormResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events": {
+      "post": {
+        "tags": [
+          "Telemetry & Events"
+        ],
+        "summary": "Record Telemetry Event",
+        "description": "Privacy-preserving client telemetry recorder.",
+        "operationId": "record_telemetry_event_api_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventTelemetryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTelemetryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArchitectureNodeSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "layer": {
+            "type": "string",
+            "title": "Layer"
+          },
+          "tech": {
+            "type": "string",
+            "title": "Tech"
+          },
+          "details": {
+            "type": "string",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "type",
+          "layer",
+          "tech",
+          "details"
+        ],
+        "title": "ArchitectureNodeSchema"
+      },
+      "ArchitectureSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "request_flow": {
+            "items": {
+              "$ref": "#/components/schemas/RequestFlowStepSchema"
+            },
+            "type": "array",
+            "title": "Request Flow"
+          },
+          "nodes": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ArchitectureNodeSchema"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nodes",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "category",
+          "description",
+          "request_flow"
+        ],
+        "title": "ArchitectureSchema"
+      },
+      "CapabilitySchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "proficiency": {
+            "type": "integer",
+            "title": "Proficiency"
+          },
+          "years": {
+            "type": "integer",
+            "title": "Years"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "technologies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Technologies"
+          },
+          "project_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Project Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "category",
+          "proficiency",
+          "years",
+          "description",
+          "technologies",
+          "project_ids"
+        ],
+        "title": "CapabilitySchema"
+      },
+      "ContactFormRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 2,
+            "title": "Name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "company": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Company"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 10,
+            "title": "Message"
+          },
+          "budget": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 50
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budget"
+          },
+          "honeypot": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Honeypot"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
+        "title": "ContactFormRequest"
+      },
+      "ContactFormResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "transmission_id": {
+            "type": "string",
+            "title": "Transmission Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "transmission_id",
+          "message"
+        ],
+        "title": "ContactFormResponse"
+      },
+      "DeliveryStageSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "detail"
+        ],
+        "title": "DeliveryStageSchema"
+      },
+      "EventTelemetryRequest": {
+        "properties": {
+          "event_type": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 2,
+            "title": "Event Type"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event_type"
+        ],
+        "title": "EventTelemetryRequest"
+      },
+      "EventTelemetryResponse": {
+        "properties": {
+          "recorded": {
+            "type": "boolean",
+            "title": "Recorded"
+          },
+          "event_id": {
+            "type": "string",
+            "title": "Event Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "recorded",
+          "event_id"
+        ],
+        "title": "EventTelemetryResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "environment": {
+            "type": "string",
+            "title": "Environment"
+          },
+          "uptime_seconds": {
+            "type": "number",
+            "title": "Uptime Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "version",
+          "environment",
+          "uptime_seconds"
+        ],
+        "title": "HealthResponse"
+      },
+      "MetricsSchema": {
+        "properties": {
+          "projects_delivered": {
+            "type": "integer",
+            "title": "Projects Delivered"
+          },
+          "models_in_production": {
+            "type": "integer",
+            "title": "Models In Production"
+          },
+          "engineers_led": {
+            "type": "integer",
+            "title": "Engineers Led"
+          },
+          "revenue_impact_usd": {
+            "type": "integer",
+            "title": "Revenue Impact Usd"
+          },
+          "uptime_sla_percent": {
+            "type": "number",
+            "title": "Uptime Sla Percent"
+          },
+          "avg_p99_latency_ms": {
+            "type": "integer",
+            "title": "Avg P99 Latency Ms"
+          },
+          "tokens_processed_monthly": {
+            "type": "string",
+            "title": "Tokens Processed Monthly"
+          }
+        },
+        "type": "object",
+        "required": [
+          "projects_delivered",
+          "models_in_production",
+          "engineers_led",
+          "revenue_impact_usd",
+          "uptime_sla_percent",
+          "avg_p99_latency_ms",
+          "tokens_processed_monthly"
+        ],
+        "title": "MetricsSchema"
+      },
+      "ProfileSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "initials": {
+            "type": "string",
+            "title": "Initials"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "focus": {
+            "type": "string",
+            "title": "Focus"
+          },
+          "rotating_lines": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Rotating Lines"
+          },
+          "tagline": {
+            "type": "string",
+            "title": "Tagline"
+          },
+          "philosophy": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Philosophy"
+          },
+          "delivery_stages": {
+            "items": {
+              "$ref": "#/components/schemas/DeliveryStageSchema"
+            },
+            "type": "array",
+            "title": "Delivery Stages"
+          },
+          "bio": {
+            "type": "string",
+            "title": "Bio"
+          },
+          "location": {
+            "type": "string",
+            "title": "Location"
+          },
+          "availability": {
+            "type": "string",
+            "title": "Availability"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "initials",
+          "title",
+          "focus",
+          "rotating_lines",
+          "tagline",
+          "philosophy",
+          "delivery_stages",
+          "bio",
+          "location",
+          "availability"
+        ],
+        "title": "ProfileSchema"
+      },
+      "ProjectMetricSchema": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "value"
+        ],
+        "title": "ProjectMetricSchema"
+      },
+      "ProjectSchema": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "metrics": {
+            "items": {
+              "$ref": "#/components/schemas/ProjectMetricSchema"
+            },
+            "type": "array",
+            "title": "Metrics"
+          },
+          "stack": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Stack"
+          },
+          "architecture_id": {
+            "type": "string",
+            "title": "Architecture Id"
+          },
+          "cover_image": {
+            "type": "string",
+            "title": "Cover Image"
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "title",
+          "domain",
+          "role",
+          "summary",
+          "metrics",
+          "stack",
+          "architecture_id",
+          "cover_image"
+        ],
+        "title": "ProjectSchema"
+      },
+      "RequestFlowStepSchema": {
+        "properties": {
+          "step": {
+            "type": "integer",
+            "title": "Step"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "latency": {
+            "type": "string",
+            "title": "Latency"
+          }
+        },
+        "type": "object",
+        "required": [
+          "step",
+          "source",
+          "target",
+          "label",
+          "latency"
+        ],
+        "title": "RequestFlowStepSchema"
+      },
+      "TimelineItemSchema": {
+        "properties": {
+          "year": {
+            "type": "string",
+            "title": "Year"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "organization": {
+            "type": "string",
+            "title": "Organization"
+          },
+          "milestone": {
+            "type": "string",
+            "title": "Milestone"
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "role",
+          "organization",
+          "milestone"
+        ],
+        "title": "TimelineItemSchema"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
